@@ -26,7 +26,10 @@ public class LaunchingBehavior : MonoBehaviour
         {
             SceneManager.LoadScene("Brick_Game_MVI", LoadSceneMode.Single);
         }
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         Debug.DrawLine(initialBlockPosition, blockPosition.position);
         LaunchBlock();
 
