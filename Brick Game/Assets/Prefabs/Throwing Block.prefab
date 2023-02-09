@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4876679732973803973}
   - component: {fileID: -5282540357503164555}
   - component: {fileID: 7167136554342333891}
+  - component: {fileID: 5290394138442305949}
   m_Layer: 0
   m_Name: Throwing Block
   m_TagString: Untagged
@@ -78,8 +79,20 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 3
+--- !u!114 &5290394138442305949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874156780273712589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae6b8e88aaede246b97f22f2bb41c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2190777813404236292
 GameObject:
   m_ObjectHideFlags: 0
