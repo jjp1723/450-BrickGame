@@ -13,8 +13,9 @@ public class LaunchingBehavior : MonoBehaviour
     private Vector2 launchForce;
     private Vector2 MousePosition;
     private float gameTimer = 5f;
+    public LineRenderer PathofTrag;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +39,14 @@ public class LaunchingBehavior : MonoBehaviour
         }
         //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
-        if(gameTimer >= 2.5f)
+        if (gameTimer >= 2.5f)
         {
             launchBlockSprite.color = Color.white;
+            blockPosition.position = initialBlockPosition;
+            LaunchBlock();
             blockBody.velocity = Vector3.zero;
             blockBody.angularVelocity = 0;
-            LaunchBlock();
+            blockPosition.rotation = Quaternion.identity;
         }
         else
         {
@@ -78,12 +81,18 @@ public class LaunchingBehavior : MonoBehaviour
 
             launchForce.x = initialBlockPosition.x - blockPosition.position.x;
             launchForce.y = initialBlockPosition.y - blockPosition.position.y;
+            PathofTrag.SetPosition(0, initialBlockPosition);
+            PathofTrag.SetPosition(1, blockPosition.position);
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            blockBody.velocity = Vector3.zero;
+            blockBody.angularVelocity = 0;
             launchForce *= 1000;
             blockBody.AddForce(launchForce);
             gameTimer = 0;
+            PathofTrag.SetPosition(0, Vector3.zero);
+            PathofTrag.SetPosition(1, Vector3.zero);
         }
     }
 
