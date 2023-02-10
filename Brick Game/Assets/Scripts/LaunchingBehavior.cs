@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,10 @@ public class LaunchingBehavior : MonoBehaviour
     private Vector3 initialBlockPosition;
     public Transform blockPosition;
     public Rigidbody2D blockBody;
+    public SpriteRenderer launchBlockSprite;
     private Vector2 launchForce;
     private Vector2 MousePosition;
+    private float gameTimer = 5f;
 
 
     // Start is called before the first frame update
@@ -22,6 +25,9 @@ public class LaunchingBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        gameTimer += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("Brick_Game_MVI", LoadSceneMode.Single);
@@ -30,9 +36,19 @@ public class LaunchingBehavior : MonoBehaviour
         {
             Application.Quit();
         }
-        Debug.DrawLine(initialBlockPosition, blockPosition.position);
-        LaunchBlock();
+        //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
+        if(gameTimer >= 2.5f)
+        {
+            launchBlockSprite.color = Color.white;
+            blockBody.velocity = Vector3.zero;
+            blockBody.angularVelocity = 0;
+            LaunchBlock();
+        }
+        else
+        {
+            launchBlockSprite.color = Color.red;
+        }
     }
 
     void LaunchBlock()
@@ -42,13 +58,32 @@ public class LaunchingBehavior : MonoBehaviour
             MousePosition = ConvertToWorldUnits(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
             blockBody.constraints = RigidbodyConstraints2D.None;
             blockPosition.position =  MousePosition;
-            launchForce.x = initialBlockPosition.x - MousePosition.x;
-            launchForce.y = initialBlockPosition.y - MousePosition.y;
+            if (blockPosition.position.x <= -7) 
+            {
+                blockPosition.position = new Vector2(-7, blockPosition.position.y);
+            }
+            else if (blockPosition.position.x > -1)
+            {
+                blockPosition.position = new Vector2(-1, blockPosition.position.y);
+            }
+
+            if (blockPosition.position.y <= -3.5f)
+            {
+                blockPosition.position = new Vector2(blockPosition.position.x, -3.5f);
+            }
+            else if (blockPosition.position.y > 0)
+            {
+                blockPosition.position = new Vector2(blockPosition.position.x, 0);
+            }
+
+            launchForce.x = initialBlockPosition.x - blockPosition.position.x;
+            launchForce.y = initialBlockPosition.y - blockPosition.position.y;
         }
         else if (Input.GetMouseButtonUp(0))
         {
             launchForce *= 1000;
             blockBody.AddForce(launchForce);
+            gameTimer = 0;
         }
     }
 
