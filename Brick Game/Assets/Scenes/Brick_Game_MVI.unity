@@ -651,6 +651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorWalls (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7703207070851182602, guid: 3daad4aa912b2f24584f80d18275989f, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7703207070851182604, guid: 3daad4aa912b2f24584f80d18275989f, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1337,6 +1341,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5282540357503164555, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 0b0d049ec6acca044a6805fb09061d8d, type: 2}
     - target: {fileID: 874156780273712589, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
       propertyPath: m_Name
       value: Throwing Block
