@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LaunchingBehavior : MonoBehaviour
 {
-    private Vector3 initialBlockPosition;
+   
     public Transform blockPosition;
     public Rigidbody2D blockBody;
     public SpriteRenderer launchBlockSprite;
@@ -19,7 +19,7 @@ public class LaunchingBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialBlockPosition = blockPosition.position;
+        
         Awake();
     }
 
@@ -42,7 +42,7 @@ public class LaunchingBehavior : MonoBehaviour
         if (gameTimer >= 2.5f)
         {
             launchBlockSprite.color = Color.white;
-            blockPosition.position = initialBlockPosition;
+           
             LaunchBlock();
             blockBody.velocity = Vector3.zero;
             blockBody.angularVelocity = 0;
@@ -60,7 +60,7 @@ public class LaunchingBehavior : MonoBehaviour
         {
             MousePosition = ConvertToWorldUnits(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
             blockBody.constraints = RigidbodyConstraints2D.None;
-            blockPosition.position =  MousePosition;
+            /*
             if (blockPosition.position.x <= -7) 
             {
                 blockPosition.position = new Vector2(-7, blockPosition.position.y);
@@ -78,11 +78,11 @@ public class LaunchingBehavior : MonoBehaviour
             {
                 blockPosition.position = new Vector2(blockPosition.position.x, 0);
             }
-
-            launchForce.x = initialBlockPosition.x - blockPosition.position.x;
-            launchForce.y = initialBlockPosition.y - blockPosition.position.y;
-            PathofTrag.SetPosition(0, initialBlockPosition);
-            PathofTrag.SetPosition(1, blockPosition.position);
+            */
+            launchForce.x = blockPosition.position.x -MousePosition.x;
+            launchForce.y = blockPosition.position.y - MousePosition.y;
+            PathofTrag.SetPosition(0, blockPosition.position);
+            PathofTrag.SetPosition(1, MousePosition);
         }
         else if (Input.GetMouseButtonUp(0))
         {
