@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class LaunchingBehavior : MonoBehaviour
 {
-    private Vector3 initialBlockPosition;
     public Transform blockPosition;
     public Rigidbody2D blockBody;
     public SpriteRenderer launchBlockSprite;
     private Vector2 launchForce;
     private Vector2 MousePosition;
+    private float divisionCounter = 1f;
+    private bool isDividing = false;
     private float gameTimer = 5f;
     public LineRenderer PathofTrag;
 
@@ -19,7 +20,6 @@ public class LaunchingBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        initialBlockPosition = blockPosition.position;
         Awake();
     }
 
@@ -39,17 +39,27 @@ public class LaunchingBehavior : MonoBehaviour
         }
         //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
-        if (gameTimer >= 2.5f)
+        if (gameTimer >= 2.5f && divisionCounter == 1f)
         {
             launchBlockSprite.color = Color.white;
-            blockPosition.position = initialBlockPosition;
             LaunchBlock();
-            blockBody.velocity = Vector3.zero;
-            blockBody.angularVelocity = 0;
-            blockPosition.rotation = Quaternion.identity;
         }
         else
         {
+            if (isDividing)
+            {
+                if (divisionCounter <= 600f)
+                {
+                    blockBody.velocity -= launchForce * 3 / 600;
+                    divisionCounter++;
+                }
+                else
+                {
+                    divisionCounter = 1f;
+                    isDividing = false;
+                }
+            }
+
             launchBlockSprite.color = Color.red;
         }
     }
@@ -58,41 +68,23 @@ public class LaunchingBehavior : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
+
             MousePosition = ConvertToWorldUnits(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            blockBody.constraints = RigidbodyConstraints2D.None;
-            blockPosition.position =  MousePosition;
-            if (blockPosition.position.x <= -7) 
-            {
-                blockPosition.position = new Vector2(-7, blockPosition.position.y);
-            }
-            else if (blockPosition.position.x > -1)
-            {
-                blockPosition.position = new Vector2(-1, blockPosition.position.y);
-            }
 
-            if (blockPosition.position.y <= -3.5f)
-            {
-                blockPosition.position = new Vector2(blockPosition.position.x, -3.5f);
-            }
-            else if (blockPosition.position.y > 0)
-            {
-                blockPosition.position = new Vector2(blockPosition.position.x, 0);
-            }
-
-            launchForce.x = initialBlockPosition.x - blockPosition.position.x;
-            launchForce.y = initialBlockPosition.y - blockPosition.position.y;
-            PathofTrag.SetPosition(0, initialBlockPosition);
-            PathofTrag.SetPosition(1, blockPosition.position);
+            launchForce.x = blockPosition.position.x - MousePosition.x;
+            launchForce.y = blockPosition.position.y - MousePosition.y;
+            PathofTrag.SetPosition(0, blockPosition.position);
+            PathofTrag.SetPosition(1, MousePosition);
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            blockBody.velocity = Vector3.zero;
+            blockBody.velocity = Vector2.zero;
             blockBody.angularVelocity = 0;
-            launchForce *= 1000;
-            blockBody.AddForce(launchForce);
+            blockBody.velocity += launchForce * 3;
             gameTimer = 0;
             PathofTrag.SetPosition(0, Vector3.zero);
             PathofTrag.SetPosition(1, Vector3.zero);
+            isDividing = true;
         }
     }
 
