@@ -443,6 +443,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3292447310747132601, guid: 71add0d93fd930a45bb84810f9062cd2, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71add0d93fd930a45bb84810f9062cd2, type: 3}
 --- !u!1001 &424807343
@@ -1397,6 +1401,14 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1066054146}
+    - target: {fileID: 7167136554342333891, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167136554342333891, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
 --- !u!1001 &1440530598
@@ -1606,6 +1618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4955982086253554984, guid: 10e713841bc63784db581d5a59f69f49, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4955982086253554985, guid: 10e713841bc63784db581d5a59f69f49, type: 3}
       propertyPath: m_Name
       value: 128x64-Block-Prefab
