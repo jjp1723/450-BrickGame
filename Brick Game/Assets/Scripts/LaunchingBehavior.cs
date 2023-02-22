@@ -14,7 +14,7 @@ public class LaunchingBehavior : MonoBehaviour
     private Vector2 MousePosition;
     private float gameTimer = 5f;
     public LineRenderer PathofTrag;
-
+    public int TimesThrown;
     
     // Start is called before the first frame update
     void Start()
@@ -93,6 +93,8 @@ public class LaunchingBehavior : MonoBehaviour
             gameTimer = 0;
             PathofTrag.SetPosition(0, Vector3.zero);
             PathofTrag.SetPosition(1, Vector3.zero);
+            TimesThrown++;
+           
         }
     }
 

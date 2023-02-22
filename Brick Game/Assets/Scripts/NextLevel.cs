@@ -13,13 +13,21 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(SceneManager.GetActiveScene().name == "2");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Goal")
         {
-            SceneManager.LoadScene("Brick_Game_MVI", LoadSceneMode.Single);
+            if(SceneManager.GetActiveScene().name=="2")
+            {
+                SceneManager.LoadScene("Brick_Game_MVI", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadScene("2", LoadSceneMode.Single);
+            }
+            
         }
     }
 }
