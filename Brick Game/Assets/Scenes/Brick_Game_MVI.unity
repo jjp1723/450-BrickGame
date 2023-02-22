@@ -1502,6 +1502,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7167136554342333891, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167136554342333891, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
       propertyPath: m_LinearDrag
       value: 2
       objectReference: {fileID: 0}

@@ -79,8 +79,8 @@ public class LaunchingBehavior : MonoBehaviour
                 blockPosition.position = new Vector2(blockPosition.position.x, 0);
             }
             */
-            launchForce.x = blockPosition.position.x -MousePosition.x;
-            launchForce.y = blockPosition.position.y - MousePosition.y;
+            launchForce.x = MousePosition.x - blockPosition.position.x;
+            launchForce.y = MousePosition.y - blockPosition.position.y;
             PathofTrag.SetPosition(0, blockPosition.position);
             PathofTrag.SetPosition(1, MousePosition);
         }
