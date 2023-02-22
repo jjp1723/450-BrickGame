@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Timers;
+
 
 public class ScoreCalculator : MonoBehaviour
 {
-    private int score;
+    private float gameTimer = 0f;
+    private float score;
     public Text scoreText;
 
     private void Update()
     {
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Block")
+        gameTimer += Time.deltaTime;
+        score = gameTimer;
+        if (score <= 0)
         {
-            score += 10;
-            scoreText.text = score.ToString(); 
+            score = 0;
         }
+        scoreText.text = score.ToString();
     }
+
+
 }
