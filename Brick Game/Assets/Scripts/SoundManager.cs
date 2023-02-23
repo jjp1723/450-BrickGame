@@ -23,7 +23,23 @@ public class SoundManager : MonoBehaviour
         {
             if(transform.GetComponent<AudioSource>().isPlaying == false)
             {
-                transform.GetComponent<AudioSource>().clip = sounds[Random.Range(0, sounds.Count)];
+                transform.GetComponent<AudioSource>().clip = sounds[Random.Range(0, sounds.Count - 3)];
+                transform.GetComponent<AudioSource>().Play();
+            }
+        }
+        if (collision.gameObject.tag == "Sticky")
+        {
+            if (transform.GetComponent<AudioSource>().isPlaying == false)
+            {
+                transform.GetComponent<AudioSource>().clip = sounds[Random.Range(sounds.Count - 3, sounds.Count - 1)];
+                transform.GetComponent<AudioSource>().Play();
+            }
+        }
+        if (collision.gameObject.tag == "Goal")
+        {
+            if (transform.GetComponent<AudioSource>().isPlaying == false)
+            {
+                transform.GetComponent<AudioSource>().clip = sounds[sounds.Count - 1];
                 transform.GetComponent<AudioSource>().Play();
             }
         }
