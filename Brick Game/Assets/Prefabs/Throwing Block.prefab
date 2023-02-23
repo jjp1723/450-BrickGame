@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
+  thrownText: {fileID: 0}
+  scrpit: {fileID: 0}
 --- !u!1 &2190777813404236292
 GameObject:
   m_ObjectHideFlags: 0
