@@ -35,7 +35,7 @@ public class SoundManager : MonoBehaviour
                 transform.GetComponent<AudioSource>().Play();
             }
         }
-        if (collision.gameObject.tag == "Goal")
+        if (collision.gameObject.tag == "Collectible")
         {
             if (transform.GetComponent<AudioSource>().isPlaying == false)
             {
