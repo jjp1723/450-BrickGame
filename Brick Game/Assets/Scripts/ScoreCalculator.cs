@@ -11,9 +11,11 @@ public class ScoreCalculator : MonoBehaviour
     private float score;
     private int AmountOfWallsHit;
     private int TimesThrown;
+    private float collectiblesCollected = 0f;
     public Text scoreText;
     public Text thrownText;
-    public LaunchingBehavior scrpit;
+    public Text collectibleText;
+    public LaunchingBehavior script;
     
 
     private void Update()
@@ -27,7 +29,7 @@ public class ScoreCalculator : MonoBehaviour
         }
         scoreText.text = score.ToString();
 
-        TimesThrown = scrpit.TimesThrown;
+        TimesThrown = script.TimesThrown;
         thrownText.text = TimesThrown.ToString();
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +38,14 @@ public class ScoreCalculator : MonoBehaviour
         {
            
         }
+
+        if (collision.gameObject.tag == "Collectible")
+        {
+            collectiblesCollected += 1f;
+            Destroy(collision.gameObject);
+            collectibleText.text = collectiblesCollected.ToString();
+        }
+
     }
 
 

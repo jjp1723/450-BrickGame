@@ -13,7 +13,7 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(SceneManager.GetActiveScene().name == "2");
+        //Debug.Log(SceneManager.GetActiveScene().name == "2");
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
