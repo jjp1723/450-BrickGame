@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelEndMenuManager : MonoBehaviour
 {
@@ -15,4 +16,10 @@ public class LevelEndMenuManager : MonoBehaviour
     {
         
     }
+
+    public void LoadScene(string tarScene)
+    {
+        SceneManager.LoadScene(tarScene);
+    }
+
 }
