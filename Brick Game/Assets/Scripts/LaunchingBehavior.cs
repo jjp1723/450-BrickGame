@@ -39,7 +39,7 @@ public class LaunchingBehavior : MonoBehaviour
         }
         //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
-        if (gameTimer >= 2.5f)
+        if (gameTimer >= 2.0f)
         {
             launchBlockSprite.color = Color.white;
            
@@ -94,7 +94,6 @@ public class LaunchingBehavior : MonoBehaviour
             PathofTrag.SetPosition(0, Vector3.zero);
             PathofTrag.SetPosition(1, Vector3.zero);
             TimesThrown++;
-           
         }
     }
 
