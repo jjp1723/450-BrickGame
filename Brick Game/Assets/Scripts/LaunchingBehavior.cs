@@ -45,7 +45,6 @@ public class LaunchingBehavior : MonoBehaviour
            
             LaunchBlock();
             blockBody.velocity = Vector3.zero;
-            blockBody.angularVelocity = 0;
             blockPosition.rotation = Quaternion.identity;
         }
         else
