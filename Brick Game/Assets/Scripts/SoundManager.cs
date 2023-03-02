@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public List<AudioClip> sounds = new List<AudioClip>();
+    public List<AudioClip> normalSounds = new List<AudioClip>();
+    public List<AudioClip> stickySounds = new List<AudioClip>();
+    public List<AudioClip> collectSounds = new List<AudioClip>();
 
     private void Start()
     {
@@ -21,27 +23,19 @@ public class SoundManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Block")
         {
-            if(transform.GetComponent<AudioSource>().isPlaying == false)
-            {
-                transform.GetComponent<AudioSource>().clip = sounds[Random.Range(0, sounds.Count - 3)];
-                transform.GetComponent<AudioSource>().Play();
-            }
+            //if (transform.GetComponent<AudioSource>().isPlaying == false)
+            transform.GetComponent<AudioSource>().clip = normalSounds[Random.Range(0, normalSounds.Count)];
+            transform.GetComponent<AudioSource>().Play();
         }
         if (collision.gameObject.tag == "Sticky")
         {
-            if (transform.GetComponent<AudioSource>().isPlaying == false)
-            {
-                transform.GetComponent<AudioSource>().clip = sounds[Random.Range(sounds.Count - 3, sounds.Count - 1)];
-                transform.GetComponent<AudioSource>().Play();
-            }
+            transform.GetComponent<AudioSource>().clip = stickySounds[Random.Range(0, stickySounds.Count)];
+            transform.GetComponent<AudioSource>().Play();
         }
         if (collision.gameObject.tag == "Collectible")
         {
-            if (transform.GetComponent<AudioSource>().isPlaying == false)
-            {
-                transform.GetComponent<AudioSource>().clip = sounds[sounds.Count - 1];
-                transform.GetComponent<AudioSource>().Play();
-            }
+            transform.GetComponent<AudioSource>().clip = collectSounds[Random.Range(0, collectSounds.Count)];
+            transform.GetComponent<AudioSource>().Play();
         }
     }
 }
