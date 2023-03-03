@@ -41,17 +41,22 @@ public class LaunchingBehavior : MonoBehaviour
        
         //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
-        if (gameTimer >= 2.0f)
+        if (gameTimer >= 2.0f && !menuText.activeSelf)
         {
-            launchBlockSprite.color = Color.white;
-            lineRender.SetActive(!isPaused);
-            LaunchBlock();
-            blockBody.velocity = Vector3.zero;
-            blockPosition.rotation = Quaternion.identity;
+            if (!pMenu.activeSelf)
+            {
+                launchBlockSprite.color = Color.white;
+                lineRender.SetActive(true);
+                LaunchBlock();
+                blockBody.velocity = Vector3.zero;
+                blockPosition.rotation = Quaternion.identity;
+
+            }
+            
            
 
             // issues with pausing while moving so made it so it has to be stopped to pause
-            if (Input.GetKeyDown(KeyCode.Escape) && !menuText.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 TogglePauseMenu();
             }
@@ -59,6 +64,7 @@ public class LaunchingBehavior : MonoBehaviour
         else
         {
             launchBlockSprite.color = Color.red;
+            lineRender.SetActive(false);
         }
     }
 
@@ -143,9 +149,9 @@ public class LaunchingBehavior : MonoBehaviour
             isPaused = false;
             pMenu.SetActive(isPaused);
             throwblock.SetActive(!isPaused);
-           
+            lineRender.SetActive(false);
             gameText.SetActive(!isPaused);
-            gameTimer = 1.8f;
+            gameTimer = 1.6f;
             
         }
         else
