@@ -15,7 +15,12 @@ public class LaunchingBehavior : MonoBehaviour
     private float gameTimer = 5f;
     public LineRenderer PathofTrag;
     public int TimesThrown;
-    
+    public GameObject pMenu;
+    public GameObject throwblock;
+    public GameObject lineRender;
+    public GameObject gameText;
+    public GameObject menuText;
+    private bool isPaused = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +38,23 @@ public class LaunchingBehavior : MonoBehaviour
         {
             SceneManager.LoadScene("Brick_Game_MVI", LoadSceneMode.Single);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+       
         //Debug.DrawLine(initialBlockPosition, blockPosition.position);
 
         if (gameTimer >= 2.0f)
         {
             launchBlockSprite.color = Color.white;
-           
+            lineRender.SetActive(!isPaused);
             LaunchBlock();
             blockBody.velocity = Vector3.zero;
             blockPosition.rotation = Quaternion.identity;
+           
+
+            // issues with pausing while moving so made it so it has to be stopped to pause
+            if (Input.GetKeyDown(KeyCode.Escape) && !menuText.activeSelf)
+            {
+                TogglePauseMenu();
+            }
         }
         else
         {
@@ -124,5 +133,28 @@ public class LaunchingBehavior : MonoBehaviour
         Camera.transform.position.y;
 
         return returnVec2;
+    }
+
+    // Toggles the pause menu on and off
+    public void TogglePauseMenu()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            pMenu.SetActive(isPaused);
+            throwblock.SetActive(!isPaused);
+           
+            gameText.SetActive(!isPaused);
+            gameTimer = 1.8f;
+            
+        }
+        else
+        {
+            isPaused = true;
+            pMenu.SetActive(isPaused);
+            throwblock.SetActive(!isPaused);
+            lineRender.SetActive(!isPaused);
+            gameText.SetActive(!isPaused);
+        }
     }
 }
