@@ -41,6 +41,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8712822897045145076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415972846843639868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bca19c12a095448a8797d5c07c255b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockBody: {fileID: 1989714699617220658}
+--- !u!114 &8712822897045145083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415972846843639868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552e09091ccd2c448a1ab05c80014bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuText: {fileID: 8712822898229971056}
+  gameText: {fileID: 8712822898290183361}
+  throwBlock: {fileID: 8415972846843639868}
+  line: {fileID: 8712822898034052738}
+  scoreValue: {fileID: 8712822896452274489}
+  throwValue: {fileID: 8712822896437209920}
+  scoreValueEnd: {fileID: 8712822897251135157}
+  throwValueEnd: {fileID: 8712822898073397713}
 --- !u!1 &8712822896437209922
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8712822896452274490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -365,39 +398,6 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Paused
---- !u!114 &8712822897045145076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8415972846843639868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17bca19c12a095448a8797d5c07c255b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockBody: {fileID: 1989714699617220658}
---- !u!114 &8712822897045145083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8415972846843639868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5552e09091ccd2c448a1ab05c80014bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuText: {fileID: 8712822898229971056}
-  gameText: {fileID: 8712822898290183361}
-  throwBlock: {fileID: 8415972846843639868}
-  line: {fileID: 8712822898034052738}
-  scoreValue: {fileID: 8712822897997931408}
-  throwValue: {fileID: 8712822896437209920}
-  scoreValueEnd: {fileID: 8712822897251135157}
-  throwValueEnd: {fileID: 8712822898073397713}
 --- !u!1 &8712822897154679764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8712822897997931409
 RectTransform:
   m_ObjectHideFlags: 0
