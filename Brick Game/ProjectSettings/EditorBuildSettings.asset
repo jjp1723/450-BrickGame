@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: 503ac14eb63a46e47bc3441dd9b0abd1
   - enabled: 1
-    path: Assets/Scenes/Brick_Game_MVI.unity
+    path: Assets/Scenes/1.unity
     guid: 98f09fc7b6a0d6a4abdbb89574789c75
   - enabled: 1
     path: Assets/Scenes/2.unity
     guid: 1722361f748b8ce4eab11dd0ea86cd92
+  - enabled: 1
+    path: Assets/Scenes/3.unity
+    guid: a15db8d7d46c48246b8c13a016cc606f
   m_configObjects: {}

@@ -3353,7 +3353,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1869115292}
         m_TargetAssemblyTypeName: LevelEndMenuManager, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
