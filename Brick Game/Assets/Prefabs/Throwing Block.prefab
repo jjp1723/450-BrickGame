@@ -135,6 +135,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9d49c0a2bcb110249a6a867ce823e662, type: 3}
   stickySounds:
   - {fileID: 8300000, guid: 8c1ebe3d482117a4ca5eb0df6a111e3b, type: 3}
+  - {fileID: 8300000, guid: 63a2ade1b590ec24a871e9f80a882c88, type: 3}
+  - {fileID: 8300000, guid: 9b129f59cb4e56e4db4739bb55505b88, type: 3}
   collectSounds:
   - {fileID: 8300000, guid: bb9e8746706a4c3499b3d8fba480f8d6, type: 3}
 --- !u!82 &-80559033091179207
