@@ -45,4 +45,9 @@ public class LevelEndMenuManager : MonoBehaviour
         }
 
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

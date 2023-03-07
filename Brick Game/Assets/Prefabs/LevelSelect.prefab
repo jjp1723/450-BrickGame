@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level 1
+  m_Text: 'Level '
 --- !u!1 &9020565142703886265
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 1077188055644219828}
   - component: {fileID: 8947245023017462004}
   - component: {fileID: 4232073147092364528}
+  - component: {fileID: 8303075812627271505}
   m_Layer: 5
   m_Name: LevelSelect
   m_TagString: Untagged
@@ -212,3 +213,17 @@ MonoBehaviour:
           m_StringArgument: 0
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8303075812627271505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020565142703886265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14951382f7fefc43b066b0235738718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisButton: {fileID: 4232073147092364528}
+  labelText: {fileID: 7618749480090536200}
