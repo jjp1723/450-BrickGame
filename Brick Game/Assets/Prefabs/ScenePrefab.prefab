@@ -2679,6 +2679,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3478732422159154613}
     m_Modifications:
+    - target: {fileID: -6249526030755702825, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: script
+      value: 
+      objectReference: {fileID: 8712822897448625307}
+    - target: {fileID: -6249526030755702825, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: blockBody
+      value: 
+      objectReference: {fileID: 1989714699617220658}
+    - target: {fileID: -6249526030755702825, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 8712822897997931408}
+    - target: {fileID: -6249526030755702825, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: thrownText
+      value: 
+      objectReference: {fileID: 8712822896437209920}
+    - target: {fileID: -6249526030755702825, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
+      propertyPath: collectibleText
+      value: 
+      objectReference: {fileID: 8712822896452274489}
     - target: {fileID: -5282540357503164555, guid: 4ec94d3a556cda24595f4e8c9d89b288, type: 3}
       propertyPath: m_Material
       value: 

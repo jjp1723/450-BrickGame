@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: -5282540357503164555}
   - component: {fileID: 8368349036585561929}
   - component: {fileID: 7167136554342333891}
-  - component: {fileID: 5290394138442305949}
-  - component: {fileID: 1456814182571697483}
   - component: {fileID: -80559033091179207}
+  - component: {fileID: -6249526030755702825}
   m_Layer: 0
   m_Name: Throwing Block
   m_TagString: Untagged
@@ -100,45 +99,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &5290394138442305949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874156780273712589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae6b8e88aaede246b97f22f2bb41c52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  thrownText: {fileID: 0}
-  collectibleText: {fileID: 0}
-  script: {fileID: 0}
---- !u!114 &1456814182571697483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874156780273712589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 080ea11954234254cb23761083cd90f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalSounds:
-  - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
-  - {fileID: 8300000, guid: c225aa3f434b82b49b17c3754026c86b, type: 3}
-  - {fileID: 8300000, guid: 21f6db65d00fd3e46ab9f9513b31e242, type: 3}
-  - {fileID: 8300000, guid: 9d49c0a2bcb110249a6a867ce823e662, type: 3}
-  stickySounds:
-  - {fileID: 8300000, guid: 8c1ebe3d482117a4ca5eb0df6a111e3b, type: 3}
-  - {fileID: 8300000, guid: 63a2ade1b590ec24a871e9f80a882c88, type: 3}
-  - {fileID: 8300000, guid: 9b129f59cb4e56e4db4739bb55505b88, type: 3}
-  collectSounds:
-  - {fileID: 8300000, guid: bb9e8746706a4c3499b3d8fba480f8d6, type: 3}
 --- !u!82 &-80559033091179207
 AudioSource:
   m_ObjectHideFlags: 0
@@ -235,6 +195,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6249526030755702825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874156780273712589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5b1ebf74719094c862342a368f9125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSounds:
+  - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
+  - {fileID: 8300000, guid: c225aa3f434b82b49b17c3754026c86b, type: 3}
+  - {fileID: 8300000, guid: 21f6db65d00fd3e46ab9f9513b31e242, type: 3}
+  - {fileID: 8300000, guid: 9d49c0a2bcb110249a6a867ce823e662, type: 3}
+  stickySounds:
+  - {fileID: 8300000, guid: 9b129f59cb4e56e4db4739bb55505b88, type: 3}
+  - {fileID: 8300000, guid: 8c1ebe3d482117a4ca5eb0df6a111e3b, type: 3}
+  - {fileID: 8300000, guid: 63a2ade1b590ec24a871e9f80a882c88, type: 3}
+  collectSounds:
+  - {fileID: 8300000, guid: bb9e8746706a4c3499b3d8fba480f8d6, type: 3}
+  scoreText: {fileID: 0}
+  thrownText: {fileID: 0}
+  collectibleText: {fileID: 0}
+  script: {fileID: 0}
+  blockBody: {fileID: 0}
 --- !u!1 &2190777813404236292
 GameObject:
   m_ObjectHideFlags: 0
