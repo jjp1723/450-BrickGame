@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class CollisionManager : MonoBehaviour
     public Text thrownText;
     public Text collectibleText;
     public LaunchingBehavior script;
+
+    public Rigidbody2D blockBody;
 
     // Start is called before the first frame update
     void Start()
