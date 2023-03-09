@@ -17,10 +17,11 @@ public class genLevelGrid : MonoBehaviour
 
 
         for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+        //for (int i = 1; i < 20; i++)
         { 
-                genButton(x,y,i);
+               genButton(x,y,i);
                 x += 2;
-            if (x > 2)
+            if (x > 8)
             {
                 x = -8;
                 y -= 2;
@@ -39,7 +40,7 @@ public class genLevelGrid : MonoBehaviour
 
     void genButton(int x, int y, int currentButton)
     {
-        Debug.Log(gameObject.name);
+        //Debug.Log(gameObject.name);
         GameObject currentLevel = Instantiate(levelSelect,new Vector3(x,y,0),Quaternion.identity,gameObject.transform);
         currentLevel.GetComponent<LevelGridButtonPrefab>().sceneVal = currentButton;
     }

@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject grid;
+    public GameObject gridObj;
+    public GameObject titleObj;
     bool toggleGrid = false;
     // Update is called once per frame
     void Update()
@@ -19,7 +20,9 @@ public class MenuManager : MonoBehaviour
     public void ToggleGridView()
     {
         toggleGrid = !toggleGrid;
-        grid.SetActive(toggleGrid);
+        gridObj.SetActive(toggleGrid);
+        titleObj.SetActive(!toggleGrid);
+        
     }
 
     public void QuitGame()
