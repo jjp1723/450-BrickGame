@@ -18,13 +18,14 @@ public class CollisionManager : MonoBehaviour
     public Text thrownText;
     public Text collectibleText;
     public LaunchingBehavior script;
+    private Transform thisPosition;
 
     public Rigidbody2D blockBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        thisPosition = this.GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -65,5 +66,9 @@ public class CollisionManager : MonoBehaviour
             Destroy(collision.gameObject);
             collectibleText.text = collectiblesCollected.ToString();
         }
+        //if (collision.gameObject.tag == "Magnet")
+        //{
+        //    blockBody.AddForce((collision.gameObject.GetComponent<Transform>().position - thisPosition.position));
+        //}
     }
 }
