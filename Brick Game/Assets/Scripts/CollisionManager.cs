@@ -8,6 +8,7 @@ public class CollisionManager : MonoBehaviour
     public List<AudioClip> normalSounds = new List<AudioClip>();
     public List<AudioClip> stickySounds = new List<AudioClip>();
     public List<AudioClip> collectSounds = new List<AudioClip>();
+    public List<AudioClip> bouncySounds = new List<AudioClip>();
 
     private float gameTimer = 0f;
     private float score;
@@ -47,24 +48,24 @@ public class CollisionManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Block")
         {
-            //if (transform.GetComponent<AudioSource>().isPlaying == false)
-            transform.GetComponent<AudioSource>().clip = normalSounds[Random.Range(0, normalSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            transform.GetComponent<AudioSource>().PlayOneShot(normalSounds[Random.Range(0, normalSounds.Count)]);
         }
         if (collision.gameObject.tag == "Sticky")
         {
             blockBody.velocity = Vector3.zero;
-            transform.GetComponent<AudioSource>().clip = stickySounds[Random.Range(0, stickySounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            transform.GetComponent<AudioSource>().PlayOneShot(stickySounds[Random.Range(0, stickySounds.Count)]);
         }
         if (collision.gameObject.tag == "Collectible")
         {
-            transform.GetComponent<AudioSource>().clip = collectSounds[Random.Range(0, collectSounds.Count)];
-            transform.GetComponent<AudioSource>().Play();
+            transform.GetComponent<AudioSource>().PlayOneShot(collectSounds[Random.Range(0, collectSounds.Count)]);
 
             collectiblesCollected += 1f;
             Destroy(collision.gameObject);
             collectibleText.text = collectiblesCollected.ToString();
+        }
+        if (collision.gameObject.tag == "Bouncy")
+        {
+            transform.GetComponent<AudioSource>().PlayOneShot(bouncySounds[Random.Range(0, bouncySounds.Count)]);
         }
         //if (collision.gameObject.tag == "Magnet")
         //{

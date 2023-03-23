@@ -218,6 +218,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 63a2ade1b590ec24a871e9f80a882c88, type: 3}
   collectSounds:
   - {fileID: 8300000, guid: bb9e8746706a4c3499b3d8fba480f8d6, type: 3}
+  bouncySounds:
+  - {fileID: 8300000, guid: 8c03bbf5021419449b2f968dd928b270, type: 3}
+  - {fileID: 8300000, guid: a6767610c0ad73f4f9764bde2b4c7141, type: 3}
+  - {fileID: 8300000, guid: 25f6ec1e3a33fae4bbbb5b5a35d7eeb7, type: 3}
   scoreText: {fileID: 0}
   thrownText: {fileID: 0}
   collectibleText: {fileID: 0}

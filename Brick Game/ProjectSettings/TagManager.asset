@@ -9,6 +9,7 @@ TagManager:
   - Collectible
   - Sticky
   - Magnet
+  - Bouncy
   layers:
   - Default
   - TransparentFX
