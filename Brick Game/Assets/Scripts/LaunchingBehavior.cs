@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,11 @@ public class LaunchingBehavior : MonoBehaviour
     public SpriteRenderer launchBlockSprite;
     private Vector2 launchForce;
     private Vector2 MousePosition;
+    private Vector2 Xline = new Vector2(4f, 0f);
+    private Vector2 Hypo;
     private float gameTimer = 5f;
+    private float angle;
+    private float percent;
     public LineRenderer PathofTrag;
     public int TimesThrown;
     public GameObject pMenu;
@@ -52,8 +57,6 @@ public class LaunchingBehavior : MonoBehaviour
                 blockPosition.rotation = Quaternion.identity;
 
             }
-            
-           
 
             // issues with pausing while moving so made it so it has to be stopped to pause
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -74,27 +77,44 @@ public class LaunchingBehavior : MonoBehaviour
         {
             MousePosition = ConvertToWorldUnits(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
             blockBody.constraints = RigidbodyConstraints2D.None;
-            /*
-            if (blockPosition.position.x <= -7) 
-            {
-                blockPosition.position = new Vector2(-7, blockPosition.position.y);
-            }
-            else if (blockPosition.position.x > -1)
-            {
-                blockPosition.position = new Vector2(-1, blockPosition.position.y);
+
+            float XSum = MousePosition.x - blockPosition.position.x;
+            float YSum = MousePosition.y - blockPosition.position.y;
+            Hypo = new Vector2(XSum, YSum);
+
+            //if(MousePosition.x - blockPosition.position.x > 3)
+            //{
+            //    MousePosition.x = blockPosition.position.x + 3;
+            //}
+            //else if(MousePosition.x - blockPosition.position.x < -3) {
+            //    MousePosition.x = blockPosition.position.x - 3;
+            //}
+            //launchForce.x = MousePosition.x - blockPosition.position.x;
+
+            //if (MousePosition.y - blockPosition.position.y > 3)
+            //{
+            //    MousePosition.y = blockPosition.position.y + 3;
+            //}
+            //else if (MousePosition.y - blockPosition.position.y < -3)
+            //{
+            //    MousePosition.y = blockPosition.position.y - 3;
+            //}
+            //launchForce.y = MousePosition.y - blockPosition.position.y;
+
+            if (Mathf.Sqrt(Mathf.Pow((XSum), 2f) + Mathf.Pow(YSum, 2f)) > 6f) {
+                angle = Vector2.Angle(Xline, Hypo);
+
+                if (Hypo.y < 0f) angle *= -1;
+
+                angle = Mathf.Deg2Rad * angle;
+
+                MousePosition.x = blockPosition.position.x + (6f * Mathf.Cos(angle));
+                MousePosition.y = blockPosition.position.y + (6f * Mathf.Sin(angle));
             }
 
-            if (blockPosition.position.y <= -3.5f)
-            {
-                blockPosition.position = new Vector2(blockPosition.position.x, -3.5f);
-            }
-            else if (blockPosition.position.y > 0)
-            {
-                blockPosition.position = new Vector2(blockPosition.position.x, 0);
-            }
-            */
             launchForce.x = MousePosition.x - blockPosition.position.x;
             launchForce.y = MousePosition.y - blockPosition.position.y;
+
             PathofTrag.SetPosition(0, blockPosition.position);
             PathofTrag.SetPosition(1, MousePosition);
         }
@@ -102,7 +122,15 @@ public class LaunchingBehavior : MonoBehaviour
         {
             blockBody.velocity = Vector3.zero;
             blockBody.angularVelocity = 0;
-            launchForce *= 1000;
+            if (Hypo.magnitude < 6f)
+            {
+                percent = Hypo.magnitude / 3;
+            }
+            else
+            {
+                percent = 2;
+            }
+            launchForce *= (1500 * percent);
             blockBody.AddForce(launchForce);
             gameTimer = 0;
             PathofTrag.SetPosition(0, Vector3.zero);
