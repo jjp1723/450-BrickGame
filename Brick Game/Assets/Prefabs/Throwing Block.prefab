@@ -108,7 +108,7 @@ AudioSource:
   m_GameObject: {fileID: 874156780273712589}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 941ddf21abd685c4da50a7e89f4e7ee5, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5
@@ -209,12 +209,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalSounds:
   - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
-  - {fileID: 8300000, guid: c225aa3f434b82b49b17c3754026c86b, type: 3}
-  - {fileID: 8300000, guid: 21f6db65d00fd3e46ab9f9513b31e242, type: 3}
-  - {fileID: 8300000, guid: 9d49c0a2bcb110249a6a867ce823e662, type: 3}
+  - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
+  - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
+  - {fileID: 8300000, guid: 64ebfb04677bdd64ba6029715417defb, type: 3}
   stickySounds:
   - {fileID: 8300000, guid: 9b129f59cb4e56e4db4739bb55505b88, type: 3}
-  - {fileID: 8300000, guid: 8c1ebe3d482117a4ca5eb0df6a111e3b, type: 3}
+  - {fileID: 8300000, guid: f53bb437725ddb14d95cb3e0e263d0cc, type: 3}
   - {fileID: 8300000, guid: 63a2ade1b590ec24a871e9f80a882c88, type: 3}
   collectSounds:
   - {fileID: 8300000, guid: bb9e8746706a4c3499b3d8fba480f8d6, type: 3}
