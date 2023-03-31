@@ -10,11 +10,11 @@ public class CollisionManager : MonoBehaviour
     public List<AudioClip> collectSounds = new List<AudioClip>();
     public List<AudioClip> bouncySounds = new List<AudioClip>();
 
-    private float gameTimer = 0f;
+    
     private float score;
     private int AmountOfWallsHit;
     private int TimesThrown;
-    private float collectiblesCollected = 0f;
+    public float parScore = 0f;
     public Text scoreText;
     public Text thrownText;
     public Text collectibleText;
@@ -32,17 +32,14 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameTimer += Time.deltaTime;
-
-        score = Mathf.Round(gameTimer * 10f) * .1f;
-        if (score <= 0)
-        {
-            score = 0;
-        }
-        scoreText.text = score.ToString();
+       
+       
 
         TimesThrown = script.TimesThrown;
         thrownText.text = TimesThrown.ToString();
+
+        score = parScore - TimesThrown;
+        scoreText.text = score.ToString();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -59,9 +56,9 @@ public class CollisionManager : MonoBehaviour
         {
             transform.GetComponent<AudioSource>().PlayOneShot(collectSounds[Random.Range(0, collectSounds.Count)]);
 
-            collectiblesCollected += 1f;
+            parScore += 1f;
             Destroy(collision.gameObject);
-            collectibleText.text = collectiblesCollected.ToString();
+            collectibleText.text = parScore.ToString();
         }
         if (collision.gameObject.tag == "Bouncy")
         {

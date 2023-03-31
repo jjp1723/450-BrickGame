@@ -12,7 +12,10 @@ public class NextLevel : MonoBehaviour
     public Text scoreValue;
     public Text throwValue;
     public Text scoreValueEnd;
-    public Text throwValueEnd;
+    public GameObject winText;
+    public GameObject loseText;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,14 @@ public class NextLevel : MonoBehaviour
         if (collision.gameObject.tag == "Goal")
         {
             scoreValueEnd.text += scoreValue.text;
-            throwValueEnd.text += throwValue.text;
+            if(int.Parse(scoreValue.text) > 0)
+            {
+                winText.SetActive(true);
+            }
+            else
+            {
+                loseText.SetActive(true);
+            }
             menuText.SetActive(true);
             gameText.SetActive(false);
             throwBlock.SetActive(false);
