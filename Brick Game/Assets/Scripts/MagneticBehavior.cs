@@ -24,12 +24,15 @@ public class MagneticBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = thisPosition.position - launchPosition.position;
-        if ((Mathf.Abs(distance.x) < constraints.x) &&
-            (Mathf.Abs(distance.y) < constraints.y) &&
-                (Mathf.Abs(distance.z) < constraints.z))
+        if (launchBody.constraints != RigidbodyConstraints2D.FreezeAll) 
         {
-            launchBody.AddForce((distance) * 6);
+            distance = thisPosition.position - launchPosition.position;
+            if ((Mathf.Abs(distance.x) < constraints.x) &&
+                (Mathf.Abs(distance.y) < constraints.y) &&
+                    (Mathf.Abs(distance.z) < constraints.z))
+            {
+                launchBody.AddForce((distance) * 6);
+            }
         }
     }
 }

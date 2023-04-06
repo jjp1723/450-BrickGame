@@ -75,7 +75,6 @@ public class LaunchingBehavior : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             MousePosition = ConvertToWorldUnits(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            blockBody.constraints = RigidbodyConstraints2D.None;
 
             float XSum = MousePosition.x - blockPosition.position.x;
             float YSum = MousePosition.y - blockPosition.position.y;
@@ -119,6 +118,7 @@ public class LaunchingBehavior : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            blockBody.constraints = RigidbodyConstraints2D.None;
             blockBody.velocity = Vector3.zero;
             blockBody.angularVelocity = 0;
             if (Hypo.magnitude < 6f)

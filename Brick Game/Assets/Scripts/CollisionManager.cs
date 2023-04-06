@@ -50,6 +50,7 @@ public class CollisionManager : MonoBehaviour
         if (collision.gameObject.tag == "Sticky")
         {
             blockBody.velocity = Vector3.zero;
+            blockBody.constraints = RigidbodyConstraints2D.FreezeAll;
             transform.GetComponent<AudioSource>().PlayOneShot(stickySounds[Random.Range(0, stickySounds.Count)]);
         }
         if (collision.gameObject.tag == "Collectible")
