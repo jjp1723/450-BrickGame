@@ -7,7 +7,9 @@ public class MenuManager : MonoBehaviour
 {
     public GameObject gridObj;
     public GameObject titleObj;
+    public GameObject tutObj;
     bool toggleGrid = false;
+    bool toggleTut = false;
     // Update is called once per frame
     void Update()
     {
@@ -23,6 +25,15 @@ public class MenuManager : MonoBehaviour
         gridObj.SetActive(toggleGrid);
         titleObj.SetActive(!toggleGrid);
         
+    }
+
+
+    public void ToggleTutorialView()
+    {
+        toggleTut = !toggleTut;
+        tutObj.SetActive(toggleTut);
+        titleObj.SetActive(!toggleTut);
+
     }
 
     public void QuitGame()
