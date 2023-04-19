@@ -9,8 +9,9 @@ public class CollisionManager : MonoBehaviour
     public List<AudioClip> stickySounds = new List<AudioClip>();
     public List<AudioClip> collectSounds = new List<AudioClip>();
     public List<AudioClip> bouncySounds = new List<AudioClip>();
+    public List<AudioClip> magnetSounds = new List<AudioClip>();
 
-    
+
     private float score;
     private int AmountOfWallsHit;
     private int TimesThrown;
@@ -32,9 +33,6 @@ public class CollisionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-       
-
         TimesThrown = script.TimesThrown;
         thrownText.text = TimesThrown.ToString();
 

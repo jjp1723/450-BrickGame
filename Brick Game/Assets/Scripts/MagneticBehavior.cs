@@ -11,6 +11,8 @@ public class MagneticBehavior : MonoBehaviour
     private Vector3 constraints;
     private Rigidbody2D launchBody;
     private Vector3 distance;
+    public List<AudioClip> magnetSounds = new List<AudioClip>();
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class MagneticBehavior : MonoBehaviour
         thisPosition = this.GetComponent<Transform>();
         constraints = new Vector3(3.5f, 3.5f, 3.5f);
         launchBody = launchBall.GetComponent<Rigidbody2D>();
+        audio = transform.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +35,10 @@ public class MagneticBehavior : MonoBehaviour
                     (Mathf.Abs(distance.z) < constraints.z))
             {
                 launchBody.AddForce((distance) * 6);
+                if(audio.isPlaying == false)
+                {
+                    audio.PlayOneShot(magnetSounds[Random.Range(0, magnetSounds.Count)]);
+                }
             }
         }
     }

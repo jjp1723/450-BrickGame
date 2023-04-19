@@ -222,6 +222,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8c03bbf5021419449b2f968dd928b270, type: 3}
   - {fileID: 8300000, guid: a6767610c0ad73f4f9764bde2b4c7141, type: 3}
   - {fileID: 8300000, guid: 25f6ec1e3a33fae4bbbb5b5a35d7eeb7, type: 3}
+  magnetSounds:
+  - {fileID: 8300000, guid: 0426f97f7bb05e440aa1da4ff734bb30, type: 3}
+  parScore: 0
   scoreText: {fileID: 0}
   thrownText: {fileID: 0}
   collectibleText: {fileID: 0}
