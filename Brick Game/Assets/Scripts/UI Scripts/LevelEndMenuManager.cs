@@ -7,20 +7,29 @@ public class LevelEndMenuManager : MonoBehaviour
 {
     Scene cScene;
     string nextScene;
-
+    [SerializeField] LevelManagerScriptableObject levelManager;
+    [SerializeField] GameObject Wintext;
+    int numScene;
     // Start is called before the first frame update
     void Start()
     {
         cScene = SceneManager.GetActiveScene();
         nextScene = cScene.name;
-        int numScene = int.Parse(nextScene) + 1;
+        numScene = int.Parse(nextScene) + 1;
+     
         nextScene = numScene.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Wintext.activeInHierarchy)
+        {
+            if (levelManager.currentStage < numScene)
+            {
+                levelManager.currentStage = numScene;
+            }
+        }
     }
 
     public void LoadScene(string tarScene)

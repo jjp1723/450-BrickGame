@@ -1414,6 +1414,7 @@ MonoBehaviour:
   gridObj: {fileID: 1348051253}
   titleObj: {fileID: 1540425865}
   tutObj: {fileID: 136454951}
+  levelManager: {fileID: 11400000, guid: 23ce61eb24855314bb45b719844f3a05, type: 2}
 --- !u!1 &840549600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,6 +1930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelect: {fileID: 9020565142703886265, guid: 5463c18e8420375499e3d0ef979c7d7f, type: 3}
+  levelManager: {fileID: 11400000, guid: 23ce61eb24855314bb45b719844f3a05, type: 2}
 --- !u!1 &1446262958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3269,7 +3271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tutorial
+  m_Text: Info Page
 --- !u!222 &2001504017
 CanvasRenderer:
   m_ObjectHideFlags: 0

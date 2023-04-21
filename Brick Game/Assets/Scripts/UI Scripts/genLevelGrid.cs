@@ -9,7 +9,7 @@ public class genLevelGrid : MonoBehaviour
     int x = -8;
     int y = 4;
     public GameObject levelSelect;
-    
+    public LevelManagerScriptableObject levelManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +18,18 @@ public class genLevelGrid : MonoBehaviour
 
         for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
         //for (int i = 1; i < 20; i++)
-        { 
-               genButton(x,y,i);
-                x += 2;
-            if (x > 8)
+        {
+            if (i <= levelManager.currentStage)
             {
-                x = -8;
-                y -= 2;
+                genButton(x, y, i);
+                x += 2;
+                if (x > 8)
+                {
+                    x = -8;
+                    y -= 2;
+                }
             }
+             
         }
     }
 

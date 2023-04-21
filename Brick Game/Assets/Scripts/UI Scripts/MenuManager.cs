@@ -8,12 +8,16 @@ public class MenuManager : MonoBehaviour
     public GameObject gridObj;
     public GameObject titleObj;
     public GameObject tutObj;
+    public LevelManagerScriptableObject levelManager;
     bool toggleGrid = false;
     bool toggleTut = false;
     // Update is called once per frame
     void Update()
     {
-      
+        if (Input.GetKeyDown("j"))
+        {
+            levelManager.Reset();
+        }
     }
     public void LoadLevel(string tarScene)
     {
