@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class NextLevel : MonoBehaviour
 {
+    public LaunchingBehavior LaunchingBehavior;
     public GameObject menuText; 
     public GameObject gameText;
     public GameObject throwBlock;
@@ -26,20 +27,22 @@ public class NextLevel : MonoBehaviour
     void Update()
     {
         //Debug.Log(SceneManager.GetActiveScene().name == "2");
+        if (int.Parse(scoreValue.text) <= 0 && throwBlock.GetComponent<Rigidbody2D>().velocity == Vector2.zero && LaunchingBehavior.gameTimer >= .5f)
+        {
+            loseText.SetActive(true);
+            menuText.SetActive(true);
+            gameText.SetActive(false);
+            throwBlock.SetActive(false);
+            line.SetActive(false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Goal")
         {
             scoreValueEnd.text += scoreValue.text;
-            if(int.Parse(scoreValue.text) > 0)
-            {
-                winText.SetActive(true);
-            }
-            else
-            {
-                loseText.SetActive(true);
-            }
+
+            winText.SetActive(true);
             menuText.SetActive(true);
             gameText.SetActive(false);
             throwBlock.SetActive(false);
