@@ -16,6 +16,7 @@ public class CollisionManager : MonoBehaviour
     private int AmountOfWallsHit;
     private int TimesThrown;
     public float parScore = 0f;
+    private float collectibleScore = 0f;
     public Text scoreText;
     public Text thrownText;
     public Text collectibleText;
@@ -28,13 +29,14 @@ public class CollisionManager : MonoBehaviour
     void Start()
     {
         thisPosition = this.GetComponent<Transform>();
+        score = parScore;
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
         TimesThrown = script.TimesThrown;
-        thrownText.text = TimesThrown.ToString();
 
         score = parScore - TimesThrown;
         scoreText.text = score.ToString();
@@ -55,9 +57,9 @@ public class CollisionManager : MonoBehaviour
         {
             transform.GetComponent<AudioSource>().PlayOneShot(collectSounds[Random.Range(0, collectSounds.Count)]);
 
-            parScore += 1f;
+            collectibleScore += 1f;
             Destroy(collision.gameObject);
-            collectibleText.text = parScore.ToString();
+            collectibleText.text = collectibleScore.ToString();
         }
         if (collision.gameObject.tag == "Bouncy")
         {

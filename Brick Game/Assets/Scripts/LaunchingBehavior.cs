@@ -14,7 +14,7 @@ public class LaunchingBehavior : MonoBehaviour
     private Vector2 MousePosition;
     private Vector2 Xline = new Vector2(4f, 0f);
     private Vector2 Hypo;
-    private float gameTimer = 5f;
+    public float gameTimer = 5f;
     private float angle;
     private float percent;
     public LineRenderer PathofTrag;
@@ -28,7 +28,6 @@ public class LaunchingBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         Awake();
     }
 
