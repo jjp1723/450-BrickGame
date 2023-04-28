@@ -391,8 +391,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is the goal. Every throw before getting here will cost 1 score and
-    you need a postive score to beat a level!
+  m_Text: This is the goal. Get here before you run out of throws!
 --- !u!222 &195458203
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3683,8 +3682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This is a collectible. Hitting these will increase your score by one, go
-    for the high score!
+  m_Text: This is a collectible. Get all the Collectibles in a level to get a star!
 --- !u!222 &2070334275
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class genLevelGrid : MonoBehaviour
     int y = 4;
     public GameObject levelSelect;
     public LevelManagerScriptableObject levelManager;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -47,5 +48,6 @@ public class genLevelGrid : MonoBehaviour
         //Debug.Log(gameObject.name);
         GameObject currentLevel = Instantiate(levelSelect,new Vector3(x,y,0),Quaternion.identity,gameObject.transform);
         currentLevel.GetComponent<LevelGridButtonPrefab>().sceneVal = currentButton;
+        currentLevel.transform.Find("Star").gameObject.SetActive(levelManager.levelStarArray[currentButton]);
     }
 }

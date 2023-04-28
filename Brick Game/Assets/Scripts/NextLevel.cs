@@ -12,9 +12,12 @@ public class NextLevel : MonoBehaviour
     public GameObject line;
     public Text scoreValue;
     public Text throwValue;
+    public Text collectValue;
     public Text scoreValueEnd;
     public GameObject winText;
     public GameObject loseText;
+    public GameObject collectStar;
+    public LevelManagerScriptableObject levManSM;
 
 
     // Start is called before the first frame update
@@ -40,7 +43,14 @@ public class NextLevel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Goal")
         {
-            scoreValueEnd.text += scoreValue.text;
+            scoreValueEnd.text += collectValue.text;
+
+            if (GameObject.FindGameObjectsWithTag("Collectible").Length == 0)
+            {
+                collectStar.SetActive(true);
+                levManSM.levelStarArray[int.Parse(SceneManager.GetActiveScene().name)] = true;
+
+            }
 
             winText.SetActive(true);
             menuText.SetActive(true);
